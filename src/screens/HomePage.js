@@ -1,13 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { View, Text, Button, Platform, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Keyboard } from 'react-native';
+import {  Button, Platform, TouchableOpacity,TouchableWithoutFeedback } from 'react-native';
 
 export default class HomePage extends React.Component {
   render(){
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <View style={styles.container}>
+        <Text>Welcome! To the homepage</Text>
+        
       </View>
+      </TouchableWithoutFeedback>
+  
     );
   }
   

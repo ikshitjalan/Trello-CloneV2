@@ -13,6 +13,7 @@ export default class LoginPage extends React.Component {
     this.state = ({
         email: '',
         password: ''
+        
     })
 }
 
@@ -21,13 +22,13 @@ loginUser = (email, password) => {
 
     try {
 
-        firebase.auth().signInWithEmailAndPassword(email, password).then(function (user) {
-            console.log(user)
+        firebase.auth().signInWithEmailAndPassword(email, password).then(() => this.props.navigation.navigate('HomePage'))
 
-        })
+        
     }
     catch (error) {
-        console.log(error.toString())
+         console.log(error.toString())
+        
     }
 }
   render(){
@@ -66,7 +67,7 @@ loginUser = (email, password) => {
               full
               rounded
               success
-              onPress={() => this.props.navigation.navigate('Detail', { screenName: "My Detail Screen" })}>
+              onPress={() => this.props.navigation.navigate('SignUp', { screenName: "My SignUp Screen" })}>
           
               <Text style={{ color: 'white' }}> Sign Up</Text>
           </Button>

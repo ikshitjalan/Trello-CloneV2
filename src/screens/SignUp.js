@@ -9,12 +9,14 @@ export default class SignUp extends React.Component {
     super(props)
 
     this.state = ({
+        name: '',
         email: '',
         password: ''
+        
     })
 }
 
-signUpUser = (email, password) => {
+signUpUser = (name,email, password) => {
 
     try {
 
@@ -26,19 +28,30 @@ signUpUser = (email, password) => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
     }
     catch (error) {
-        console.log(error.toString())
+         console.log(error.toString())
+       
     }
 }
   render(){
     return (
       <Container style={styles.container}>
       <Form>
+           <Item floatingLabel>
+              <Label>Full Name</Label>
+              <Input
+                  autoCorrect={false}
+                  autoCapitalize="none"
+                  onChangeText={(email) => this.setState({ email })}
+              />
+
+          </Item>
+
           <Item floatingLabel>
               <Label>Email</Label>
               <Input
                   autoCorrect={false}
                   autoCapitalize="none"
-                  onChangeText={(email) => this.setState({ email })}
+                  onChangeText={(name) => this.setState({ name })}
               />
 
           </Item>
@@ -59,7 +72,7 @@ signUpUser = (email, password) => {
               full
               rounded
               primary
-              onPress={() => this.signUpUser(this.state.email, this.state.password)}
+              onPress={() => this.signUpUser(this.state.name,this.state.email, this.state.password)}
           >
               <Text style={{ color: 'white' }}> Sign Up</Text>
           </Button>

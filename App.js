@@ -21,6 +21,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import LoginPage from './src/screens/LoginPage';
 import SignUp from './src/screens/SignUp';
+import HomePage from './src/screens/HomePage'
 
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -44,10 +45,19 @@ const Stack = createStackNavigator();
         }}
       />
       <Stack.Screen
-        name="Detail"
+        name="SignUp"
         component={SignUp}
         options={{
           title: "Sign Up To Login",
+          headerStyle: { backgroundColor: "blue" },
+          headerTintColor: "white"
+        }}
+      />
+      <Stack.Screen
+        name="HomePage"
+        component={HomePage}
+        options={{
+          title: "Welcome to HomePage",
           headerStyle: { backgroundColor: "blue" },
           headerTintColor: "white"
         }}
