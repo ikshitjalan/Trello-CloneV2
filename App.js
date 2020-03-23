@@ -36,7 +36,7 @@ const Stack = createStackNavigator();
     
       <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="Login"
         component={LoginPage}
         options={{
           title: "Trello",
