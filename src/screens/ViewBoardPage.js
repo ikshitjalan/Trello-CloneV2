@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default class ViewBoardPage extends React.Component {
+ 
   render(){
     return (
       <View style={styles.container}>
-        <Text>O ViewBoardPageapp!</Text>
+        <Text>view board</Text>
       </View>
     );
   }

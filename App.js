@@ -1,7 +1,10 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {   Platform, TouchableOpacity,TouchableWithoutFeedback } from 'react-native';
+import { DrawerActions } from 'react-navigation-drawer';
 
+import {FontAwesome5} from '@expo/vector-icons';
 import * as firebase from 'firebase';
 
 const firebaseConfig = {
@@ -23,14 +26,28 @@ import LoginPage from './src/screens/LoginPage';
 import SignUp from './src/screens/SignUp';
 import HomePage from './src/screens/HomePage'
 
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator,headerRight } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
 
- class MyApp extends React.Component {
- 
-    
+
+ class MyApp extends React.Component   {
+    static navigationOptions = ({ navigation }) => {
+
+
+    return {
+      title: 'Home',
+      headerRight : ()=> (
+        <TouchableOpacity
+          style ={{alignItems:'flex-start',margin:16}}
+          onPress = {()=>navigation.dispatch(DrawerActions.openDrawer())}
+        >
+          <FontAwesome5 name='bars' size={24} color = '#161924'/>
+        </TouchableOpacity>
+      )
+    }
+  };
   render(){
     return (
     
@@ -56,18 +73,26 @@ const Stack = createStackNavigator();
       <Stack.Screen
         name="HomePage"
         component={HomePage}
-        options={{
-          title: "Welcome to HomePage",
-          headerStyle: { backgroundColor: "blue" },
-          headerTintColor: "white"
-        }}
+        options = {({navigation})=>(
+          {
+            title :"TODO/S",
+            headerLeft: null,
+            gesturesEnabled: false,
+            swipeEnabled: false
+            
+          
+          }
+         
+        )}
       />
     </Stack.Navigator>
     
     );
   }
+    
+  }
   
-}
+
 
 export default class App extends React.Component{
   render(){
