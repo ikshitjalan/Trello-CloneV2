@@ -33,21 +33,7 @@ const Stack = createStackNavigator();
 
 
  class MyApp extends React.Component   {
-    static navigationOptions = ({ navigation }) => {
-
-
-    return {
-      title: 'Home',
-      headerRight : ()=> (
-        <TouchableOpacity
-          style ={{alignItems:'flex-start',margin:16}}
-          onPress = {()=>navigation.dispatch(DrawerActions.openDrawer())}
-        >
-          <FontAwesome5 name='bars' size={24} color = '#161924'/>
-        </TouchableOpacity>
-      )
-    }
-  };
+    
   render(){
     return (
     
@@ -82,8 +68,15 @@ const Stack = createStackNavigator();
             
           
           }
+          
          
         )}
+        navigationOptions= {() => ({
+          gestureResponseDistance: {
+            horizontal: -1,
+            vertical: -1,
+          }
+        })}
       />
     </Stack.Navigator>
     
@@ -95,6 +88,21 @@ const Stack = createStackNavigator();
 
 
 export default class App extends React.Component{
+  static navigationOptions = ({ navigation }) => {
+
+
+    return {
+      title: 'Home',
+      headerRight : ()=> (
+        <TouchableOpacity
+          style ={{alignItems:'flex-start',margin:16}}
+          onPress = {()=>navigation.dispatch(DrawerActions.openDrawer())}
+        >
+          <FontAwesome5 name='bars' size={24} color = '#161924'/>
+        </TouchableOpacity>
+      )
+    }
+  };
   render(){
     return(
       <NavigationContainer>

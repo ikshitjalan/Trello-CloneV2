@@ -7,8 +7,7 @@ import {FontAwesome5} from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Settings from './Settings';
-import Account from './AccountPage';
-import ViewBoard from './ViewBoardPage';
+
 import AddBoard from './AddBoardPage';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -27,18 +26,9 @@ const Drawer = createDrawerNavigator();
                 component={AddBoard}
                 
                />
-               <Drawer.Screen
-                name="ViewBoard"
-                component={ViewBoard}
-                
-               />
+              
                
-                <Drawer.Screen
-                name="Account"
-                component={Account}
-                
-                
-               />
+               
                 <Drawer.Screen
                 name="Settings"
                 component={Settings}
